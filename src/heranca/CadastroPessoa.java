@@ -41,12 +41,12 @@ public class CadastroPessoa {
     public Boolean validaCPFCNPJ(Pessoa pessoa) {
         for (int i = 0; i < cont; i++) {
             if ((pessoa instanceof PessoaFisica) && (p[i] instanceof PessoaFisica)) {
-                if(((PessoaFisica) p[i]).CPF.equalsIgnoreCase(((PessoaFisica) pessoa).CPF)){
+                if(((PessoaFisica) p[i]).getCPF().equalsIgnoreCase(((PessoaFisica) pessoa).getCPF())){
                     openMessage("CPF já cadastrado!", "ERRO!");
                     return false;
                 }
             }else if ((pessoa instanceof PessoaJuridica) && (p[i] instanceof PessoaJuridica)) {
-                if(((PessoaJuridica) p[i]).CNPJ.equalsIgnoreCase(((PessoaJuridica) pessoa).CNPJ)){
+                if(((PessoaJuridica) p[i]).getCNPJ().equalsIgnoreCase(((PessoaJuridica) pessoa).getCNPJ())){
                     openMessage("CNPJ já cadastrado!", "ERRO!");
                     return false;
                 }
@@ -68,9 +68,9 @@ public class CadastroPessoa {
                 model.addElement(p[i]);
         else   
             for(int i = 0; i < cont; i++){
-                if ((p[i] instanceof PessoaFisica) && (((PessoaFisica) p[i]).CPF.equalsIgnoreCase(documento)))
+                if ((p[i] instanceof PessoaFisica) && (((PessoaFisica) p[i]).getCPF().equalsIgnoreCase(documento)))
                     model.addElement(p[i]);
-                else if ((p[i] instanceof PessoaJuridica) && (((PessoaJuridica) p[i]).CNPJ.equalsIgnoreCase(documento)))
+                else if ((p[i] instanceof PessoaJuridica) && (((PessoaJuridica) p[i]).getCNPJ().equalsIgnoreCase(documento)))
                     model.addElement(p[i]);
             }
         return model;

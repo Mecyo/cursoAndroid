@@ -1,5 +1,7 @@
 package heranca;
 
+import android.Cadastro;
+
 /**
  *
  * @author Emerson Santos
